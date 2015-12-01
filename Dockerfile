@@ -26,5 +26,6 @@ VOLUME /var/log/apache2
 VOLUME /srv/svn/repositories
 VOLUME /srv/svn/conf
 #
+COPY httpd-foreground /usr/local/bin/
 EXPOSE 80 443
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["httpd-foreground"]
