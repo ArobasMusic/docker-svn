@@ -20,6 +20,7 @@ RUN a2dissite 000-default
 # Configure svn
 RUN mkdir -p /srv/svn/repositories
 RUN mkdir -p /srv/svn/conf
+VOLUME /var/log/apache2
 VOLUME /srv/svn/repositories
 VOLUME /srv/svn/conf
 #
