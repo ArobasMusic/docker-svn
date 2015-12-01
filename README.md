@@ -1,5 +1,5 @@
 # docker-svn
-A Docker image to run Subversion with Apache. It features:
+A Docker image to run Subversion with Apache.
 
 ### Tags
 
