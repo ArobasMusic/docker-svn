@@ -14,8 +14,8 @@ RUN a2enmod dav
 RUN a2enmod dav_fs
 RUN a2enmod dav_lock
 RUN a2enmod dav_svn
-RUN a2ensite svn
 RUN a2enmod authz_svn
+RUN a2ensite svn
 RUN a2dissite 000-default
 # Configure svn
 RUN mkdir -p /srv/svn/repositories
