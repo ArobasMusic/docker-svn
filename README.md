@@ -3,7 +3,8 @@ A Docker image to run Subversion with Apache.
 
 ### Tags
 
-- `1.0`, latest
+- `1.0`, `latest`
+
     Features:
     - ubuntu 14.04
     - apache2 2.4.7,
@@ -26,7 +27,7 @@ A Docker image to run Subversion with Apache.
     arobasmusic/svn    
 ```
 
-#### Volumes
+### Volumes
 - `/var/log/apache2` is where apache logs are written.
 - `/srv/svn/repositories` is where you store your svn repositories.
 - `/srv/svn/conf` is where you store your `passwd` and `authz` files.
