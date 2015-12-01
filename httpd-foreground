@@ -5,12 +5,10 @@ ARGV="$@"
 
 ## The locale used by some modules like mod_dav
 export LANG=C
-
-export APACHE_PID_FILE="/var/run/apache2/apache2.pid"
-export APACHE_RUN_DIR="/var/run/apache2"
-export APACHE_LOCK_DIR="/var/lock/apache2"
 export APACHE_LOG_DIR="/var/log/apache2"
-export APACHE_CONFDIR="/etc/apache2"
+export APACHE_LOCK_DIR="/tmp"
+export APACHE_RUN_DIR="/tmp"
+export APACHE_PID_FILE="/tmp/apache2.pif"
 
 # the path to your httpd binary, including options if necessary
 HTTPD="/usr/sbin/apache2"
@@ -30,10 +28,7 @@ if [ "x$ULIMIT_MAX_FILES" != "x" ] && [ `id -u` -eq 0 ];
     fi
 fi
 
-rm -fr "$APACHE_RUN_DIR"
-mkdir -p "$APACHE_RUN_DIR"
+rm -fr /tmp/apache2.pid
+rm -fr /tmp/apache2.lock
 
-rm -fr "$APACHE_LOCK_DIR"
-mkdir -p "$APACHE_LOCK_DIR"
-
-exec "$HTTPD" -D FOREGROUND
+exec "$HTTPD" -d /etc/apache2 -f apache2.conf -e info -D FOREGROUND
