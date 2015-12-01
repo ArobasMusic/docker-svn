@@ -8,6 +8,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apache2 libapache2-svn
 # Configure apache
+ENV APACHE_SVN_VHOST_SERVER_NAME="svn.acme.com"
+
 ADD apache.conf /etc/apache2/sites-available/svn.conf
 RUN a2enmod alias
 RUN a2enmod dav
